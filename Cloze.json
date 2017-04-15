@@ -1,0 +1,19 @@
+[
+	{
+		"text": "... is the path that an object takes as it revolves around a star, planet, or moon.",
+		"cloze": "orbit"
+	}, {
+		"text": "... is an explosive eruption of waves and particles into space.",
+		"cloze": "solar flare"
+	}, {
+		"text": "The ... is the natural object that revolves around a planet.",
+		"cloze": "moon"
+	}, {
+		"text": "A ... is the spacecraft that gathers data without a crew.",
+		"cloze": "space probe"
+	}, {
+		"text": "... is one full orbit around the sun.",
+		"cloze": "revolution"
+	}
+
+]

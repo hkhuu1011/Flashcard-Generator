@@ -5,6 +5,7 @@ var inquirer = require("inquirer");
 var BasicCard = require("./BasicCard.js");
 var ClozeCard = require("./ClozeCard.js");
 var data = require("./Basic.json");
+var dataCloze = require("./Cloze.json");
 // console.log(data);
 
 start();
@@ -23,41 +24,60 @@ function start() {
 			playClozeCard();
 		}
 	});
-};
+}; // End start function
 
+// Selected Basic Card 
 function playBasicCard() {
  	// console.log(data);
 	var index = 0;
 	var basicBank = [];
-	var correctanswer = 0;
+	var correctAnswer = 0;
 	for (var i = 0; i < data.length; i++) {
 		var currentCard = new BasicCard(data[i].front, data[i].back);
 		basicBank.push(currentCard);
 	}
 	// console.log(basicBank);
-	askquestions(basicBank,index);
-}
+	askquestions(basicBank,index,correctAnswer);
+} // End playBasicCard
 
-function askquestions(basicBank,index){
-	var card = basicBank[index]
+// Display questions
+function askquestions(basicBank, index,correctAnswer){
+	var card = basicBank[index];
 	if (index < basicBank.length){
 		inquirer.prompt({
 			name: "basicBank",
 			message: card.front
 		}).then(function(answer) {
-			if(answer.basicBank.lowercase() === card.back) {
-				correctanswer++;
+			if(answer.basicBank === card.back) {
+				correctAnswer++;
+				console.log(correctAnswer);
 				console.log("That is correct!!!");
+				var index = 1;
+				askquestions(basicBank,index,correctAnswer);
 			} else {
 				console.log("Wrong!!!! The correct answer is " + card.back);
 			}
 		})
-	}else{
+
+	}
+	else{
 		end();
 	}
-}
+} //End askquestions function 
 
-
+// Selected Cloze Card
+function playClozeCard() {
+ 	// console.log(data);
+	var index = 0;
+	var clozeBank = [];
+	var correctanswer = 0;
+	for (var i = 0; i < dataCloze.length; i++) {
+		var currentCard = new ClozeCard(data[i].text, data[i].cloze);
+		clozeBank.push(currentCard);
+	}
+	// console.log(basicBank);
+	askquestions(basicBank,index);
+} // End playClozeCard
 
 // PrintInfo method
 // BasicCard.prototype.printInfo = function() {

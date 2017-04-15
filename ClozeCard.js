@@ -1,4 +1,4 @@
-var inquirer = require("inquirer");
+console.log("cloze card running");
 
 // Contructor function for Cloze Card
 function ClozeCard(text, cloze) {
@@ -8,7 +8,7 @@ function ClozeCard(text, cloze) {
 
 // PrintInfo method
 ClozeCard.prototype.PrintInfo = function() {
-	console.log("Front: " + this.text + "Cloze: " + this.cloze)
+	console.log("text: " + this.text + "Cloze: " + this.cloze)
 };
 
 // Function for partial text
