@@ -16,3 +16,5 @@ ClozeCard.prototype.partial = function() {
 	var text = this.text
 	console.log(text)
 }
+
+module.exports = ClozeCard;
