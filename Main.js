@@ -38,11 +38,11 @@ function playBasicCard() {
 		basicBank.push(currentCard);
 	}
 	// console.log(basicBank);
-	askquestions(basicBank,index,correctAnswer, currentCard);
+	askquestions(basicBank,index,correctAnswer);
 }; // End playBasicCard
 
 // Display questions
-function askquestions(basicBank, index, correctAnswer, currentCard){
+function askquestions(basicBank, index, correctAnswer){
 	var card = basicBank[index];
 	if (index < basicBank.length){
 		// Prompt for Basic card to show the front
@@ -58,8 +58,9 @@ function askquestions(basicBank, index, correctAnswer, currentCard){
 				// var index = 1;
 				// askquestions(basicBank,index,correctAnswer);
 			} else {
-				console.log("Wrong! The correct answer is: " + card.back);
+					console.log("Wrong! The correct answer is: " + card.back);
 			}
+	
 		})
 
 	}
