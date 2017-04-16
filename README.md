@@ -1,5 +1,4 @@
 # Flashcard-Generator
-=====================
 
 ## Overview
 
