@@ -38,11 +38,11 @@ function playBasicCard() {
 		basicBank.push(currentCard);
 	}
 	// console.log(basicBank);
-	askquestions(basicBank,index,correctAnswer);
+	askquestions(basicBank,index,correctAnswer, currentCard);
 }; // End playBasicCard
 
 // Display questions
-function askquestions(basicBank, index, correctAnswer){
+function askquestions(basicBank, index, correctAnswer, currentCard){
 	var card = basicBank[index];
 	if (index < basicBank.length){
 		// Prompt for Basic card to show the front
@@ -53,9 +53,8 @@ function askquestions(basicBank, index, correctAnswer){
 			// Compares your answer to .back of Basic.json
 			if(answer.basicBank === card.back) {
 				correctAnswer++;
-				console.log(correctAnswer);
 				console.log("That is correct!!!");
-
+				console.log("Score: ", correctAnswer);
 				// var index = 1;
 				// askquestions(basicBank,index,correctAnswer);
 			} else {
@@ -75,6 +74,7 @@ function playClozeCard() {
 	var index = 0;
 	var clozeBank = [];
 	var correctAnswer = 0;
+	// Loop through Cloze.json array and pushes first index to current card
 	for (var i = 0; i < dataCloze.length; i++) {
 		var currentCard = new ClozeCard(dataCloze[i].text, dataCloze[i].cloze);
 		clozeBank.push(currentCard);
@@ -92,8 +92,8 @@ function askclozequestions(clozeBank, index, correctAnswer){
 		}).then(function(answer) {
 			if(answer.clozeBank === card.cloze) {
 				correctAnswer++;
-				console.log(correctAnswer);
 				console.log("That is correct!!!");
+				console.log("Score: ", correctAnswer);
 			} else {
 				console.log("Wrong! The correct answer is: " + card.cloze);
 			}
